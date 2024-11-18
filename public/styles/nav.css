@@ -1,0 +1,32 @@
+/* nav.css */
+
+/*
+ * Navigation Bar Styles
+ */
+
+ nav {
+  height: 120px;
+  width: 100vw;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 0 1.5em;
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: space-between; /* Space between logo and right content */
+}
+
+nav span {
+  font-family: "Bungee", cursive;
+  font-size: 1.5em; /* Optional: Adjust font size for emphasis */
+}
+
+nav .new-tweet {
+  text-align: center;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+nav .new-tweet i {
+  font-size: 1.5em;
+  display: block; /* Position icon below the text */
+  margin-top: 5px; /* Add spacing between text and icon */
+}
