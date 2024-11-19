@@ -13,6 +13,8 @@
   width: 100%; /* Full width of the parent container */
   background-color: #f5ae2c; /* A distinct background color different from nav and body */
   background-image: url('/images/subtle-grunge.png'); /* Texture from local file */
+  background-repeat: repeat; /* Ensure the texture tiles correctly */
+  background-size: auto; /* Default sizing for tiling */
   padding: 20px;
   margin-bottom: 20px; /* Space after the header */
 }

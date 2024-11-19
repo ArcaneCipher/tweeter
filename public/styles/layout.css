@@ -20,10 +20,29 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: "Source Sans 3", sans-serif;
-  padding-top: 120px;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+body {
+  font-family: "Source Sans 3", sans-serif;
+  padding-top: 120px;
+}
+
+main {
+  width: 90%; /* 90% of the parent's width */
+  margin: 0 auto; /* Center align to the body */
+  background-color: #f4f1ec; /* Same background as the body */
+  padding: 20px; /* Add some internal spacing */
+  border-radius: 8px; /* Optional: Add rounded corners for aesthetics */
+}
+
+main h1,
+main h2,
+main p {
+  margin-bottom: 16px; /* Add space between elements */
+  line-height: 1.5; /* Improve readability */
+  color: #545149; /* Text color matches the body */
+}
