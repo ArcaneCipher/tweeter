@@ -34,7 +34,7 @@ body {
 main {
   width: 90%; /* 90% of the parent's width */
   margin: 0 auto; /* Center align to the body */
-  background-color: #f4f1ec; /* Same background as the body */
+  background-color: inherit; /* Same background as the parent element */
   padding: 20px; /* Add some internal spacing */
   border-radius: 8px; /* Optional: Add rounded corners for aesthetics */
 }
