@@ -1,0 +1,17 @@
+/* header.css */
+
+/*
+ * Header Styles
+ */
+
+ header {
+  display: flex;
+  flex-direction: column; /* Stack the avatar and name vertically */
+  align-items: center; /* Center the content horizontally */
+  justify-content: center; /* Center the content vertically */
+  width: 100%; /* Full width of the parent container */
+  background-color: #f5ae2c; /* A distinct background color different from nav and body */
+  background-image: url('/images/subtle-grunge.png'); /* Texture from local file */
+  padding: 20px;
+  margin-bottom: 20px; /* Space after the header */
+}

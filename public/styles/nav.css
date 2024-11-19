@@ -13,6 +13,8 @@
   display: flex;
   align-items: center; /* Vertically center the content */
   justify-content: space-between; /* Space between logo and right content */
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
 }
 
 nav span {
@@ -26,7 +28,7 @@ nav .new-tweet {
 }
 
 nav .new-tweet i {
-  font-size: 1.5em;
+  font-size: 1em;
   display: block; /* Position icon below the text */
   margin-top: 5px; /* Add spacing between text and icon */
 }
