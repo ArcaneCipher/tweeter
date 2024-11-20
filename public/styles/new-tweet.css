@@ -1,0 +1,61 @@
+/* new-tweet.css */
+
+/*
+ * Styles for the "Compose Tweet" form
+ */
+
+ section.new-tweet {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the form horizontally */
+  margin: 20px auto; /* Center the form with auto margins */
+  width: 100%; /* Full width of the parent container */
+  max-width: 600px; /* Limit the form's width */
+}
+
+section.new-tweet form {
+  width: 100%;
+  border-bottom: 4px solid #4056A1; /* Thick bottom border only */
+  padding-bottom: 20px;
+}
+
+section.new-tweet textarea {
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  padding: 10px;
+  border: none; /* Remove default border */
+  outline: none; /* Remove focus outline */
+  resize: none; /* Prevent resizing */
+  font-family: "Source Sans 3", sans-serif; /* Match the main font */
+  font-size: 16px;
+  color: #545149;
+  background-color: #f4f1ec; /* Match the body background color */
+  border-bottom: 2px solid #4056A1; /* Subtle bottom border for the textarea */
+}
+
+section.new-tweet button {
+  background-color: #4056A1; /* Match nav bar color */
+  color: #FFFFFF; /* White text */
+  font-family: "Bungee", cursive; /* Match the nav bar font */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px; /* Optional rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+section.new-tweet button:hover {
+  background-color: #324785; /* Slightly darker shade for hover */
+}
+
+section.new-tweet div {
+  display: flex;
+  justify-content: space-between; /* Space between button and counter */
+  align-items: center;
+  margin-top: 10px;
+}
+
+section.new-tweet .counter {
+  font-family: "Bungee", cursive; /* Match the nav bar font */
+  color: #4056A1;
+}

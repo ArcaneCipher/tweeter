@@ -20,6 +20,9 @@
     <!-- Header CSS -->
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
+    <!-- New Tweet Form Styles -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -65,17 +68,20 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <h1>Welcome to Tweeter</h1>
-      <h2>Your daily dose of 140-character insights</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
-        volutpat ligula. Duis vitae quam vel libero suscipit luctus. Praesent
-        pharetra convallis lectus, non vehicula elit pellentesque at.
-      </p>
-      <p>
-        Sed sit amet dignissim felis. In efficitur, purus at efficitur
-        efficitur, turpis urna tempus massa, nec ultricies erat sapien ut justo.
-      </p>
+
+      <!-- Tweet form -->
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets/" method="POST">
+          <label for="tweet-text">Compose your tweet:</label>
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      
     </main>
   </body>
 </html>
