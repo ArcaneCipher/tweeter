@@ -33,6 +33,12 @@ section.new-tweet textarea {
   border-bottom: 2px solid #4056A1; /* Subtle bottom border for the textarea */
 }
 
+section.new-tweet textarea:focus {
+  outline: 2px solid #4056A1; /* Highlight with nav bar color */
+  border-bottom: 2px solid #324785; /* Slightly darker border for focus */
+  background-color: #eef2f7; /* Subtle background change */
+}
+
 section.new-tweet button {
   background-color: #4056A1; /* Match nav bar color */
   color: #FFFFFF; /* White text */
@@ -42,6 +48,11 @@ section.new-tweet button {
   border-radius: 5px; /* Optional rounded corners */
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+section.new-tweet button:focus {
+  outline: 2px solid #4056A1; /* Highlight with nav bar color */
+  background-color: #324785; /* Slightly darker background for focus */
 }
 
 section.new-tweet button:hover {
@@ -58,4 +69,9 @@ section.new-tweet div {
 section.new-tweet .counter {
   font-family: "Bungee", cursive; /* Match the nav bar font */
   color: #4056A1;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+section.new-tweet .counter.exceeded {
+  color: red; /* Change color when the limit is exceeded */
 }
