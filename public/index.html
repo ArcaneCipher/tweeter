@@ -23,6 +23,9 @@
     <!-- New Tweet Form Styles -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
+    <!-- Tweet feed CSS -->
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -71,9 +74,7 @@
 
       <!-- Tweet form -->
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form action="/tweets/" method="POST">
-          <label for="tweet-text">Compose your tweet:</label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea>
           <div>
             <button type="submit">Tweet</button>
@@ -82,6 +83,30 @@
         </form>
       </section>
       
+ <!-- Tweet container -->
+ <section class="tweet-container">
+  <article class="tweet">
+    <div class="row top-row">
+      <div class="profile-picture">
+        <img src="/images/profile-hex.png" alt="User's profile picture" />
+      </div>
+      <div class="name">Jane Doe</div>
+      <div class="username">@jdoe</div>
+    </div>
+    <div class="row content">
+      <p>This is an example tweet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="row bottom-row">
+      <div class="date">10 days ago</div>
+      <div class="icons">
+        <i class="fa-solid fa-retweet"></i>
+        <i class="fa-solid fa-flag"></i>
+        <i class="fa-solid fa-heart"></i>
+      </div>
+    </div>
+  </article>
+</section>
+
     </main>
 
     <!-- Composer Character Counter Script -->

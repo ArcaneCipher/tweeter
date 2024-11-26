@@ -15,7 +15,7 @@
 
 section.new-tweet form {
   width: 100%;
-  border-bottom: 4px solid #4056A1; /* Thick bottom border only */
+  border-bottom: 2px solid #4056A1; /* Thick bottom border only */
   padding-bottom: 20px;
 }
 
@@ -30,7 +30,7 @@ section.new-tweet textarea {
   font-size: 16px;
   color: #545149;
   background-color: #f4f1ec; /* Match the body background color */
-  border-bottom: 2px solid #4056A1; /* Subtle bottom border for the textarea */
+  border-bottom: 3px solid #4056A1; /* Subtle bottom border for the textarea */
 }
 
 section.new-tweet textarea:focus {

@@ -1,0 +1,93 @@
+/* tweet.css */
+
+/* Tweet box styles */
+article.tweet {
+  border: 2px solid #4056A1; /* Border around the entire box */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #ffffff; /* White background */
+  padding: 10px;
+  margin-bottom: 20px; /* Space between tweets */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between rows */
+  transition: box-shadow 0.3s ease; /* Smooth shadow effect */
+}
+
+/* Hover shadow effect */
+article.tweet:hover {
+  box-shadow: 8px 8px 2px #d3d9f1; /* Light blue shadow */
+}
+
+/* First row (Top row) */
+article.tweet .top-row {
+  display: flex;
+  justify-content: space-between; /* Space between sections */
+  align-items: center; /* Vertically center content */
+}
+
+/* Profile picture */
+article.tweet .profile-picture img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Circular image */
+}
+
+/* Name section */
+article.tweet .name {
+  flex-grow: 1; /* Take up remaining space between profile picture and username */
+  margin-left: 10px; /* Space between profile picture and name */
+  font-family: "Source Sans 3", sans-serif; /* Default font */
+  font-size: 1em;
+  color: #545149;
+  font-weight: bold;
+}
+
+/* Username section */
+article.tweet .username {
+  font-family: "Source Sans 3", sans-serif; /* Default font */
+  font-size: 0.9em;
+  color: #545149;
+  font-style: italic;
+}
+
+/* Second row (Content) */
+article.tweet .content {
+  font-family: "Source Sans 3", sans-serif; /* Default font */
+  color: #545149;
+  font-size: 1em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Third row (Bottom row) */
+article.tweet .bottom-row {
+  display: flex;
+  justify-content: space-between; /* Space between date and icons */
+  align-items: center;
+  border-top: 2px solid #e3e3e3; /* Subtle top border */
+  padding-top: 10px;
+}
+
+/* Date */
+article.tweet .date {
+  font-family: "Source Sans 3", sans-serif; /* Default font */
+  font-size: 0.8em;
+  color: #545149;
+}
+
+/* Icons */
+article.tweet .icons {
+  display: flex;
+  gap: 10px; /* Space between icons */
+}
+
+article.tweet .icons i {
+  font-size: 1em;
+  color: #4056A1; /* Default blue color */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+article.tweet .icons i:hover {
+  color: #f5ae2c; /* Orange hover color */
+}
