@@ -1,6 +1,6 @@
 /* tweet.css */
 
-/* Tweet box styles */
+/* Styles for the entire tweet box */
 article.tweet {
   border: 2px solid #4056A1; /* Border around the entire box */
   border-radius: 8px; /* Rounded corners */
@@ -13,12 +13,23 @@ article.tweet {
   transition: box-shadow 0.3s ease; /* Smooth shadow effect */
 }
 
-/* Hover shadow effect */
+/* Hover effect for the tweet box */
 article.tweet:hover {
   box-shadow: 8px 8px 2px #d3d9f1; /* Light blue shadow */
 }
 
-/* First row (Top row) */
+/* Focus state for the tweet box */
+article.tweet:focus {
+  outline: 1px solid #4056A1; /* Visible focus indicator */
+  box-shadow: 8px 8px 2px #d3d9f1;
+}
+
+/* Focus state for icons */
+article.tweet .icons i:focus {
+  color: #f5ae2c; /* Match hover color */
+}
+
+/* Top row: profile picture, name, and username */
 article.tweet .top-row {
   display: flex;
   justify-content: space-between; /* Space between sections */
