@@ -45,7 +45,7 @@ const renderTweets = function (tweets) {
   // Loop through tweets array and append each to the container
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet); // Generate tweet element
-    $(".tweets-container").append($tweet); // Append to container
+    $(".tweets-container").prepend($tweet); // Append to container
   }
 };
 
