@@ -4,10 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Function to create a tweet element
-const createTweetElement = (tweet) => {
-  const timeAgo = new Date(tweet.created_at).toLocaleString(); // Temporary time formatting
-  const $tweet = $(`
+// Initialize on page load
+$(document).ready(function () {
+
+  // Function to create a tweet element
+  const createTweetElement = (tweet) => {
+    const timeAgo = new Date(tweet.created_at).toLocaleString(); // Temporary time formatting
+    const $tweet = $(`
     <article class="tweet">
       <!-- Top Row -->
       <div class="row top-row">
@@ -35,37 +38,68 @@ const createTweetElement = (tweet) => {
     </article>
   `);
 
-  return $tweet;
-};
+    return $tweet;
+  };
 
-const renderTweets = function (tweets) {
-  // Empty the container to prevent duplicate tweets
-  $(".tweets-container").empty();
+  // Function to render tweets
+  const renderTweets = function (tweets) {
+    $(".tweets-container").empty(); // Clear existing tweets
 
-  // Loop through tweets array and append each to the container
-  for (const tweet of tweets) {
-    const $tweet = createTweetElement(tweet); // Generate tweet element
-    $(".tweets-container").prepend($tweet); // Append to container
-  }
-};
+    // Loop through tweets array and append each to the container
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet); // Generate tweet element
+      $(".tweets-container").prepend($tweet); // Add new tweets to the top
+    }
+  };
 
-// Function to fetch tweets
-const loadTweets = () => {
-  $.ajax({
-    url: "/tweets", // Fetch tweets from the server endpoint
-    method: "GET",
-    dataType: "json",
-    success: (tweets) => {
-      console.log("Tweets loaded:", tweets); // Debug: Log fetched tweets
-      renderTweets(tweets); // Render tweets to the page
-    },
-    error: (err) => {
-      console.error("Error loading tweets:", err);
-    },
+  // Function to fetch tweets
+  const loadTweets = () => {
+    $.ajax({
+      url: "/tweets", // Fetch tweets from the server endpoint
+      method: "GET",
+      dataType: "json",
+      success: (tweets) => {
+        renderTweets(tweets); // Render tweets to the page
+      },
+      error: (err) => {
+        console.error("Error loading tweets:", err);
+      },
+    });
+  };
+
+  // Event listener for form submission
+  $(".new-tweet form").on("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission and page refresh
+
+    // Serialize form data for submission
+    const serializedData = $(this).serialize();
+
+    // Validate input
+    const tweetText = $("#tweet-text").val();
+    if (!tweetText) {
+      alert("Tweet cannot be empty!");
+      return;
+    }
+    if (tweetText.length > 140) {
+      alert("Tweet exceeds the maximum length of 140 characters!");
+      return;
+    }
+
+    // AJAX POST request to send the form data
+    $.ajax({
+      url: "/tweets", // Server endpoint for creating a new tweet
+      method: "POST",
+      data: serializedData,
+      success: () => {
+        $("#tweet-text").val(""); // Clear the textarea and reset the counter
+        $(".counter").text("140"); // Reset the counter
+        loadTweets(); // Reload tweets to display the new one
+      },
+      error: (err) => {
+        console.error("Error submitting tweet:", err);
+      },
+    });
   });
-};
 
-// Initialize on page load
-$(document).ready(function () {
   loadTweets(); // Load tweets on page load
 });
