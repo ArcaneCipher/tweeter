@@ -71,16 +71,16 @@ $(document).ready(function () {
   $(".new-tweet form").on("submit", function (event) {
     event.preventDefault(); // Prevent the default form submission and page refresh
 
+    const tweetText = $("#tweet-text").val(); // Get the tweet content
     const serializedData = $(this).serialize(); // Serialize form data for submission
 
     // Validate tweet text
-    const tweetText = $("#tweet-text").val();
     if (!tweetText) {
-      alert("Tweet cannot be empty!");
+      alert("Tweet cannot be empty!"); // Notify user of empty tweet
       return;
     }
     if (tweetText.length > 140) {
-      alert("Tweet exceeds the maximum length of 140 characters!");
+      alert("Tweet exceeds the maximum length of 140 characters!"); // Notify user of too long tweet
       return;
     }
 
