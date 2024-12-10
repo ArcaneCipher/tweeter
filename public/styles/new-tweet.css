@@ -77,13 +77,15 @@ section.new-tweet .counter.exceeded {
 }
 
 .error-message {
-  background-color: #ffdddd; /* Light red background for visibility */
-  border: 1px solid #ff5c5c; /* Border color matching the background */
-  color: #a94442; /* Dark red text for readability */
-  padding: 5px 10px;
+  background-color: #ffdddd; /* Light red background */
+  border: 1px solid #ff5c5c; /* Red border */
+  color: #a94442; /* Dark red text */
+  padding: 10px;
   border-radius: 5px;
   font-size: 14px;
   display: none; /* Hidden by default */
+  text-align: center;
+  margin: 10px 0; /* Add spacing */
 }
 
 .new-tweet form div {

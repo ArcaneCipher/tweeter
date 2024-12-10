@@ -6,7 +6,7 @@
 
 // Initialize on page load
 $(document).ready(function () {
-  // Function to validate tweet content
+  // Validates that the tweet is not empty and does not exceed 140 characters.
   const validateTweet = (tweetText) => {
     if (!tweetText) {
       return "Tweet cannot be empty!";
@@ -17,18 +17,18 @@ $(document).ready(function () {
     return null; // Valid tweet
   };
 
-  // Function to show error messages
+  // Function to show error messages. Accepts a message string and displays it in the error message container.
   const showError = (message) => {
     const $errorContainer = $(".error-message");
     $errorContainer.text(message).slideDown(); // Display the error message
   };
 
-  // Function to hide error messages
+  // Function to hide error messages. Slides up and hides the error message container.
   const hideError = () => {
     $(".error-message").slideUp(); // Hide the error message
   };
 
-  // Function to create a tweet element
+  // Function to create a tweet element. Constructs a DOM tree for a tweet using jQuery and returns the tweet element.
   const createTweetElement = (tweet) => {
     // Create the main article container
     const $tweet = $("<article>").addClass("tweet");
@@ -73,7 +73,7 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  // Function to render tweets
+  // Function to render tweets. Accepts an array of tweets and renders them in the tweets container.
   const renderTweets = (tweets) => {
     $(".tweets-container").empty(); // Clear existing tweets
 
@@ -84,7 +84,7 @@ $(document).ready(function () {
     }
   };
 
-  // Function to fetch tweets
+  // Function to fetch tweets. Makes an AJAX GET request to fetch tweets and renders them on success.
   const loadTweets = () => {
     $.ajax({
       url: "/tweets", // Fetch tweets from the server endpoint
@@ -94,12 +94,13 @@ $(document).ready(function () {
         renderTweets(tweets); // Render tweets to the page
       },
       error: (err) => {
-        console.error("Error loading tweets:", err);
+        showError("Error: Unable to load tweets. Please try again later."); // Show error to the user
+        console.error("Error loading tweets:", err); // Log error for debugging
       },
     });
   };
 
-  // Event listener for form submission
+  // Event listener for form submission. Handles tweet form submissions, validates input, and sends data via AJAX.
   $(".new-tweet form").on("submit", function (event) {
     event.preventDefault(); // Prevent the default form submission and page refresh
 
@@ -126,15 +127,16 @@ $(document).ready(function () {
         loadTweets(); // Reload tweets to display the new one
       },
       error: (err) => {
-        console.error("Error submitting tweet:", err);
+        showError("Error: Unable to post tweet. Please try again later."); // Show error to the user
+        console.error("Error submitting tweet:", err); // Log error for debugging
       },
     });
   });
 
-  // Event listener to hide error message on textarea focus
+  // Event listener to hide error message on textarea focus. Hides the error message when the user focuses on the textarea.
   $("#tweet-text").on("focus", function () {
     hideError(); // Hide the error message when the user focuses on the textarea
   });
-  
+
   loadTweets(); // Load tweets on page load
 });
