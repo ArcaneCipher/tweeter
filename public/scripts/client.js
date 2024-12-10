@@ -8,35 +8,40 @@
 $(document).ready(function () {
   // Function to create a tweet element
   const createTweetElement = (tweet) => {
-    const timeAgo = timeago.format(tweet.created_at); // Use timeago to format the timestamp
-    const $tweet = $(`
-    <article class="tweet">
-      <!-- Top Row -->
-      <div class="row top-row">
-        <div class="profile-picture">
-          <img src="${tweet.user.avatars}" alt="Profile picture of ${tweet.user.name}" />
-        </div>
-        <div class="name">${tweet.user.name}</div>
-        <div class="username">${tweet.user.handle}</div>
-      </div>
-
-      <!-- Content Row -->
-      <div class="row content">
-        <p>${tweet.content.text}</p>
-      </div>
-
-      <!-- Bottom Row -->
-      <div class="row bottom-row">
-        <div class="date">${timeAgo}</div>
-        <div class="icons">
-          <i class="fa-solid fa-retweet"></i>
-          <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-heart"></i>
-        </div>
-      </div>
-    </article>
-  `);
-
+    // Create the main article container
+    const $tweet = $("<article>").addClass("tweet");
+  
+    // Top Row
+    const $topRow = $("<div>").addClass("row top-row");
+    const $profilePicture = $("<div>")
+      .addClass("profile-picture")
+      .append($("<img>").attr("src", tweet.user.avatars).attr("alt", `Profile picture of ${tweet.user.name}`));
+    const $name = $("<div>").addClass("name").text(tweet.user.name);
+    const $username = $("<div>").addClass("username").text(tweet.user.handle);
+  
+    $topRow.append($profilePicture, $name, $username);
+  
+    // Content Row
+    const $contentRow = $("<div>").addClass("row content").append(
+      $("<p>").text(tweet.content.text) // Safely add text
+    );
+  
+    // Bottom Row
+    const $bottomRow = $("<div>").addClass("row bottom-row");
+    const $date = $("<div>").addClass("date").text(timeago.format(tweet.created_at));
+    const $icons = $("<div>")
+      .addClass("icons")
+      .append(
+        $("<i>").addClass("fa-solid fa-retweet"),
+        $("<i>").addClass("fa-solid fa-flag"),
+        $("<i>").addClass("fa-solid fa-heart")
+      );
+  
+    $bottomRow.append($date, $icons);
+  
+    // Append all rows to the tweet container
+    $tweet.append($topRow, $contentRow, $bottomRow);
+  
     return $tweet;
   };
 
