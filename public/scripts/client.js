@@ -6,29 +6,57 @@
 
 // Initialize on page load
 $(document).ready(function () {
+  // Function to validate tweet content
+  const validateTweet = (tweetText) => {
+    if (!tweetText) {
+      return "Tweet cannot be empty!";
+    }
+    if (tweetText.length > 140) {
+      return "Tweet exceeds the maximum length of 140 characters!";
+    }
+    return null; // Valid tweet
+  };
+
+  // Function to show error messages
+  const showError = (message) => {
+    const $errorContainer = $(".error-message");
+    $errorContainer.text(message).slideDown(); // Display the error message
+  };
+
+  // Function to hide error messages
+  const hideError = () => {
+    $(".error-message").slideUp(); // Hide the error message
+  };
+
   // Function to create a tweet element
   const createTweetElement = (tweet) => {
     // Create the main article container
     const $tweet = $("<article>").addClass("tweet");
-  
+
     // Top Row
     const $topRow = $("<div>").addClass("row top-row");
     const $profilePicture = $("<div>")
       .addClass("profile-picture")
-      .append($("<img>").attr("src", tweet.user.avatars).attr("alt", `Profile picture of ${tweet.user.name}`));
+      .append(
+        $("<img>")
+          .attr("src", tweet.user.avatars)
+          .attr("alt", `Profile picture of ${tweet.user.name}`)
+      );
     const $name = $("<div>").addClass("name").text(tweet.user.name);
     const $username = $("<div>").addClass("username").text(tweet.user.handle);
-  
+
     $topRow.append($profilePicture, $name, $username);
-  
+
     // Content Row
     const $contentRow = $("<div>").addClass("row content").append(
       $("<p>").text(tweet.content.text) // Safely add text
     );
-  
+
     // Bottom Row
     const $bottomRow = $("<div>").addClass("row bottom-row");
-    const $date = $("<div>").addClass("date").text(timeago.format(tweet.created_at));
+    const $date = $("<div>")
+      .addClass("date")
+      .text(timeago.format(tweet.created_at));
     const $icons = $("<div>")
       .addClass("icons")
       .append(
@@ -36,12 +64,12 @@ $(document).ready(function () {
         $("<i>").addClass("fa-solid fa-flag"),
         $("<i>").addClass("fa-solid fa-heart")
       );
-  
+
     $bottomRow.append($date, $icons);
-  
+
     // Append all rows to the tweet container
     $tweet.append($topRow, $contentRow, $bottomRow);
-  
+
     return $tweet;
   };
 
@@ -71,31 +99,14 @@ $(document).ready(function () {
     });
   };
 
-  // Function to validate tweet content
-  const validateTweet = (tweetText) => {
-    if (!tweetText) {
-      return "Tweet cannot be empty!";
-    }
-    if (tweetText.length > 140) {
-      return "Tweet exceeds the maximum length of 140 characters!";
-    }
-    return null; // Valid tweet
-  };
-
-  // Function to show error messages
-  const showError = (message) => {
-    const $errorContainer = $(".error-message");
-    $errorContainer.text(message).slideDown(); // Display the error message
-  };
-
   // Event listener for form submission
   $(".new-tweet form").on("submit", function (event) {
     event.preventDefault(); // Prevent the default form submission and page refresh
 
+    hideError(); // Hide any existing error messages
+
     const tweetText = $("#tweet-text").val().trim(); // Get the tweet content and trim it
     const error = validateTweet(tweetText);
-
-    $(".error-message").slideUp(); // Hide any existing error messages
 
     if (error) {
       showError(error); // Show validation error
@@ -120,5 +131,10 @@ $(document).ready(function () {
     });
   });
 
+  // Event listener to hide error message on textarea focus
+  $("#tweet-text").on("focus", function () {
+    hideError(); // Hide the error message when the user focuses on the textarea
+  });
+  
   loadTweets(); // Load tweets on page load
 });
