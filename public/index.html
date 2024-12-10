@@ -74,28 +74,30 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-
       <!-- Tweet form -->
       <section class="new-tweet">
         <form action="/tweets/" method="POST">
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea>
+          <textarea
+            name="text"
+            id="tweet-text"
+            placeholder="What are you humming about?"
+          ></textarea>
           <div>
             <button type="submit">Tweet</button>
+            <!-- Error Message Container -->
+            <div class="error-message" style="display: none; color: red; margin-left: 10px;"></div>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-      
- <!-- Tweet container -->
- <section class="tweets-container">
-  <!-- Dynamic tweets will be appended here -->
 
-</section>
-
+      <!-- Tweet container -->
+      <section class="tweets-container">
+        <!-- Dynamic tweets will be appended here -->
+      </section>
     </main>
 
     <!-- Composer Character Counter Script -->
     <script src="/scripts/composer-char-counter.js"></script>
-
   </body>
 </html>

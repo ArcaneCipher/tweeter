@@ -75,3 +75,19 @@ section.new-tweet .counter {
 section.new-tweet .counter.exceeded {
   color: red; /* Change color when the limit is exceeded */
 }
+
+.error-message {
+  background-color: #ffdddd; /* Light red background for visibility */
+  border: 1px solid #ff5c5c; /* Border color matching the background */
+  color: #a94442; /* Dark red text for readability */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: none; /* Hidden by default */
+}
+
+.new-tweet form div {
+  display: flex; /* Align button and error message horizontally */
+  align-items: center; /* Vertically align button and error */
+  gap: 10px; /* Add spacing between elements */
+}

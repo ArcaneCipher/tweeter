@@ -6,7 +6,6 @@
 
 // Initialize on page load
 $(document).ready(function () {
-
   // Function to create a tweet element
   const createTweetElement = (tweet) => {
     const timeAgo = timeago.format(tweet.created_at); // Use timeago to format the timestamp
@@ -42,7 +41,7 @@ $(document).ready(function () {
   };
 
   // Function to render tweets
-  const renderTweets = function (tweets) {
+  const renderTweets = (tweets) => {
     $(".tweets-container").empty(); // Clear existing tweets
 
     // Loop through tweets array and append each to the container
@@ -67,22 +66,38 @@ $(document).ready(function () {
     });
   };
 
+  // Function to validate tweet content
+  const validateTweet = (tweetText) => {
+    if (!tweetText) {
+      return "Tweet cannot be empty!";
+    }
+    if (tweetText.length > 140) {
+      return "Tweet exceeds the maximum length of 140 characters!";
+    }
+    return null; // Valid tweet
+  };
+
+  // Function to show error messages
+  const showError = (message) => {
+    const $errorContainer = $(".error-message");
+    $errorContainer.text(message).slideDown(); // Display the error message
+  };
+
   // Event listener for form submission
   $(".new-tweet form").on("submit", function (event) {
     event.preventDefault(); // Prevent the default form submission and page refresh
 
     const tweetText = $("#tweet-text").val().trim(); // Get the tweet content and trim it
-    const serializedData = $(this).serialize(); // Serialize form data for submission
+    const error = validateTweet(tweetText);
 
-    // Validate tweet text
-    if (!tweetText) {
-      alert("Tweet cannot be empty!"); // Notify user of empty tweet
+    $(".error-message").slideUp(); // Hide any existing error messages
+
+    if (error) {
+      showError(error); // Show validation error
       return;
     }
-    if (tweetText.length > 140) {
-      alert("Tweet exceeds the maximum length of 140 characters!"); // Notify user of too long tweet
-      return;
-    }
+
+    const serializedData = $(this).serialize(); // Serialize form data for submission
 
     // AJAX POST request to send the form data
     $.ajax({
