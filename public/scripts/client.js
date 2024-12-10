@@ -71,7 +71,7 @@ $(document).ready(function () {
   $(".new-tweet form").on("submit", function (event) {
     event.preventDefault(); // Prevent the default form submission and page refresh
 
-    const tweetText = $("#tweet-text").val(); // Get the tweet content
+    const tweetText = $("#tweet-text").val().trim(); // Get the tweet content and trim it
     const serializedData = $(this).serialize(); // Serialize form data for submission
 
     // Validate tweet text
