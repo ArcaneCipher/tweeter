@@ -9,7 +9,7 @@ $(document).ready(function () {
 
   // Function to create a tweet element
   const createTweetElement = (tweet) => {
-    const timeAgo = new Date(tweet.created_at).toLocaleString(); // Temporary time formatting
+    const timeAgo = timeago.format(tweet.created_at); // Use timeago to format the timestamp
     const $tweet = $(`
     <article class="tweet">
       <!-- Top Row -->
@@ -71,10 +71,9 @@ $(document).ready(function () {
   $(".new-tweet form").on("submit", function (event) {
     event.preventDefault(); // Prevent the default form submission and page refresh
 
-    // Serialize form data for submission
-    const serializedData = $(this).serialize();
+    const serializedData = $(this).serialize(); // Serialize form data for submission
 
-    // Validate input
+    // Validate tweet text
     const tweetText = $("#tweet-text").val();
     if (!tweetText) {
       alert("Tweet cannot be empty!");
@@ -91,7 +90,7 @@ $(document).ready(function () {
       method: "POST",
       data: serializedData,
       success: () => {
-        $("#tweet-text").val(""); // Clear the textarea and reset the counter
+        $("#tweet-text").val(""); // Clear the textarea
         $(".counter").text("140"); // Reset the counter
         loadTweets(); // Reload tweets to display the new one
       },
