@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
