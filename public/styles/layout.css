@@ -33,7 +33,7 @@ body {
 
 /* Profile Header Styles */
 .profile-header {
-  flex: 0 0 240px; /* Fixed height for the profile header */
+  flex: 0 0 0px; /* Fixed height for the profile header */
   width: 90%;
   background-color: #f5ae2c;
   background-image: url('/images/subtle-grunge.png');
@@ -66,7 +66,8 @@ body {
 .container {
   display: flex;
   flex-direction: column; /* Stack sections vertically by default */
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
   gap: 20px;
   width: 100%;
   padding: 20px;
@@ -82,7 +83,14 @@ body {
     gap: 20px;
   }
 
+  /* Left Column */
+  .left-column {
+    flex: 0 0 512px; /* Fixed width for the profile header */
+    margin-right: 20px; /* Space between left and right columns */
+  }
+
   .profile-header {
+    width: 100%; /* Ensure it takes the full width of the left column */
     height: auto; /* Ensure it doesn't stretch */
     margin-bottom: 0; /* Remove unnecessary spacing */
   }
@@ -93,10 +101,10 @@ body {
   }
 }
 
-/* Large Desktop Layout (1400px and above) */
-@media screen and (min-width: 1400px) {
+/* Large Desktop Layout (1920px and above) */
+@media screen and (min-width: 1920px) {
   .container {
-    max-width: 1400px; /* Limit max width for readability */
+    max-width: 1920px; /* Limit max width for readability */
     margin: 0 auto; /* Center layout */
   }
 }

@@ -21,6 +21,29 @@ $(document).ready(function () {
     });
   });
 
+  const $scrollTopBtn = $("#scroll-to-top"); // Select the scroll-to-top button
+  const $newTweetSection = $("section.new-tweet"); // Select the new-tweet section
+  const $navButton = $("nav .new-tweet"); // Select the nav toggle button
+
+  // Show/hide the scroll-to-top button on scroll
+  $(window).on("scroll", function () {
+    if ($(window).scrollTop() > 200) { // Adjust threshold as needed
+      $scrollTopBtn.fadeIn(); // Show the button
+      $navButton.fadeOut(); // Hide the nav button
+    } else {
+      $scrollTopBtn.fadeOut(); // Hide the button
+      $navButton.fadeIn(); // Show the nav button
+    }
+  });
+
+  // Scroll to the top and show the form when the button is clicked
+  $scrollTopBtn.on("click", function () {
+    $("html, body").animate({ scrollTop: 0 }, 300); // Smooth scroll to top
+    $newTweetSection.slideDown(300, function () {
+      $("#tweet-text").focus(); // Focus on the textarea
+    });
+  });
+
   // Validates that the tweet is not empty and does not exceed 140 characters.
   const validateTweet = (tweetText) => {
     if (!tweetText) {

@@ -5,8 +5,9 @@
  */
 
  nav {
+  display: flex;
   height: 120px;
-  width: 100vw;
+  width: 100%;
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 0 1.5em;
@@ -15,6 +16,22 @@
   justify-content: space-between; /* Space between logo and right content */
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Left box (Tweeter logo) */
+.nav-left {
+  flex: 0 0 auto; /* Fixed size */
+}
+
+/* Middle box (Empty flexible space) */
+.nav-middle {
+  flex: 1; /* Grow to fill available space */
+}
+
+/* Right box (Write a new tweet) */
+.nav-right {
+  flex: 0 0 auto; /* Fixed size */
 }
 
 nav span {
@@ -22,19 +39,50 @@ nav span {
   font-size: 1.5em; /* Optional: Adjust font size for emphasis */
 }
 
-nav .new-tweet {
+/* Center the content of the new-tweet block */
+.nav-right .new-tweet {
   cursor: pointer; /* Change the cursor to indicate it's clickable */
   text-align: center;
   font-family: "Bungee", cursive;
   transition: color 0.3s ease;
 }
 
-nav .new-tweet:hover {
+.nav-right  .new-tweet:hover {
   color: #f5ae2c; /* Highlight on hover */
 }
 
-nav .new-tweet i {
+.nav-right .new-tweet i {
   font-size: 1em;
   display: block; /* Position icon below the text */
   margin-top: 5px; /* Add spacing between text and icon */
+}
+
+/* Scroll-to-Top Button */
+.scroll-top-btn {
+  position: fixed; /* Stay in the same position on scroll */
+  bottom: 20px; /* Distance from the bottom of the screen */
+  right: 20px; /* Distance from the right edge of the screen */
+  width: 50px; /* Make the button round */
+  height: 50px;
+  background-color: #4056A1; /* Match nav bar color */
+  color: #ffffff; /* White icon */
+  border: none;
+  border-radius: 50%; /* Circular shape */
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+  align-items: center; /* Center the icon */
+  justify-content: center; /* Center the icon */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  z-index: 1000; /* Ensure it’s above other content */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+  background-color: #f5ae2c; /* Highlight on hover */
+  transform: scale(1.1); /* Enlarge slightly on hover */
+}
+
+.scroll-top-btn:active {
+  transform: scale(0.9); /* Shrink slightly on click */
 }
