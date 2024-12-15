@@ -33,8 +33,7 @@ body {
 
 /* Profile Header Styles */
 .profile-header {
-  flex: 0 0 0px; /* Fixed height for the profile header */
-  width: 90%;
+  width: 100%;
   background-color: #f5ae2c;
   background-image: url('/images/subtle-grunge.png');
   background-repeat: repeat;
