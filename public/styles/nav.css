@@ -23,8 +23,14 @@ nav span {
 }
 
 nav .new-tweet {
+  cursor: pointer; /* Change the cursor to indicate it's clickable */
   text-align: center;
   font-family: "Bungee", cursive;
+  transition: color 0.3s ease;
+}
+
+nav .new-tweet:hover {
+  color: #f5ae2c; /* Highlight on hover */
 }
 
 nav .new-tweet i {

@@ -9,7 +9,18 @@
 $(document).ready(function () {
   // Ensure the error message is hidden on page load
   $(".error-message").hide();
-  
+
+  // Toggle new tweet form when "Write a new tweet" is clicked
+  $("nav .new-tweet").on("click", function () {
+    const $newTweetSection = $("section.new-tweet");
+    $newTweetSection.slideToggle(300, function () {
+      // Focus on textarea only if the form is visible
+      if ($newTweetSection.is(":visible")) {
+        $("#tweet-text").focus();
+      }
+    });
+  });
+
   // Validates that the tweet is not empty and does not exceed 140 characters.
   const validateTweet = (tweetText) => {
     if (!tweetText) {
