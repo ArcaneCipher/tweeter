@@ -7,6 +7,9 @@
 
 // Initialize on page load
 $(document).ready(function () {
+  // Ensure the error message is hidden on page load
+  $(".error-message").hide();
+  
   // Validates that the tweet is not empty and does not exceed 140 characters.
   const validateTweet = (tweetText) => {
     if (!tweetText) {

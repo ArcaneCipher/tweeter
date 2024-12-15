@@ -31,18 +31,72 @@ body {
   padding-top: 120px;
 }
 
-main {
-  width: 90%; /* 90% of the parent's width */
-  margin: 0 auto; /* Center align to the body */
-  background-color: inherit; /* Same background as the parent element */
-  padding: 20px; /* Add some internal spacing */
-  border-radius: 8px; /* Optional: Add rounded corners for aesthetics */
+/* Profile Header Styles */
+.profile-header {
+  flex: 0 0 240px; /* Fixed height for the profile header */
+  width: 90%;
+  background-color: #f5ae2c;
+  background-image: url('/images/subtle-grunge.png');
+  background-repeat: repeat;
+  background-size: auto;
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-main h1,
-main h2,
-main p {
-  margin-bottom: 16px; /* Add space between elements */
-  line-height: 1.5; /* Improve readability */
-  color: #545149; /* Text color matches the body */
+.profile-header img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-header h2 {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+  color: #545149;
+}
+
+/* Default Layout (Mobile-First) */
+.container {
+  display: flex;
+  flex-direction: column; /* Stack sections vertically by default */
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  background-color: inherit;
+  margin: 0 auto;
+}
+
+/* Adjustments for Desktop Layout (1024px and above) */
+@media screen and (min-width: 1024px) {
+  .container {
+    flex-direction: row; /* Align sections horizontally */
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px;
+  }
+
+  .profile-header {
+    height: auto; /* Ensure it doesn't stretch */
+    margin-bottom: 0; /* Remove unnecessary spacing */
+  }
+
+  .new-tweet,
+  .tweets-container {
+    flex: 3; /* Main content takes up remaining space */
+  }
+}
+
+/* Large Desktop Layout (1400px and above) */
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1400px; /* Limit max width for readability */
+    margin: 0 auto; /* Center layout */
+  }
 }

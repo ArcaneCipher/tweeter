@@ -13,26 +13,14 @@
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <!-- Navigation Bar CSS -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-
-    <!-- Header CSS -->
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-
-    <!-- New Tweet Form Styles -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
-    <!-- Tweet feed CSS -->
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-
-    <!-- timeago JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
 
     <!-- App Fonts -->
@@ -61,20 +49,22 @@
       </div>
     </nav>
 
-    <!-- Profile header -->
-    <header>
-      <div>
-        <img src="/images/profile-hex.png" alt="User's profile picture" />
-      </div>
-      <br />
-      <div>
-        <h2>Your Name</h2>
-      </div>
-    </header>
-
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <!-- Tweet form -->
+      <!-- Profile header -->
+      <section class="profile-header">
+        <header>
+          <div>
+            <img src="/images/profile-hex.png" alt="User's profile picture" />
+          </div>
+          <br />
+          <div>
+            <h2>Your Name</h2>
+          </div>
+        </header>
+      </section>
+
+      <!-- New Tweet Section -->
       <section class="new-tweet">
         <form action="/tweets/" method="POST">
           <textarea
