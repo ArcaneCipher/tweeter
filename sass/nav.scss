@@ -1,0 +1,90 @@
+// Variables for reusable values
+$primary-color: #4056A1;
+$hover-color: #f5ae2c;
+$text-color: #FFFFFF;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$transition-duration: 0.3s;
+$border-radius: 50%;
+
+// Mixin for flex center alignment
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Navigation Bar
+nav {
+  @include flex-center;
+  justify-content: space-between; // Space between left, middle, and right sections
+  height: 120px;
+  width: 100%;
+  background-color: $primary-color;
+  color: $text-color;
+  padding: 0 1.5em;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+
+  span {
+    font-family: "Bungee", cursive;
+    font-size: 1.5em;
+  }
+
+  .nav-left {
+    flex: 0 0 auto; // Fixed width
+  }
+
+  .nav-middle {
+    flex: 1; // Flexible space
+  }
+
+  .nav-right {
+    flex: 0 0 auto;
+
+    .new-tweet {
+      cursor: pointer;
+      text-align: center;
+      font-family: "Bungee", cursive;
+      transition: color $transition-duration ease;
+
+      &:hover {
+        color: $hover-color;
+      }
+
+      i {
+        font-size: 1em;
+        display: block;
+        margin-top: 5px; // Spacing below the text
+      }
+    }
+  }
+}
+
+// Scroll-to-Top Button
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: $primary-color;
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none; // Hidden by default
+  box-shadow: $box-shadow;
+  transition: opacity $transition-duration ease, transform $transition-duration ease;
+  @include flex-center;
+
+  &:hover {
+    background-color: $hover-color;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

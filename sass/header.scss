@@ -1,0 +1,21 @@
+// Variables
+$header-height: 400px;
+$header-bg-color: #f5ae2c;
+$header-padding: 20px;
+$header-margin-bottom: 20px;
+$header-bg-image: url("/images/subtle-grunge.png");
+
+// Header Styles
+header {
+  display: flex;
+  flex-direction: column; // Stack the avatar and name vertically
+  align-items: center; // Center horizontally
+  justify-content: center; // Center vertically
+  height: $header-height;
+  width: 100%; // Full width of the parent container
+  background: $header-bg-color $header-bg-image;
+  background-repeat: repeat; // Ensure the texture tiles correctly
+  background-size: auto; // Default sizing for tiling
+  padding: $header-padding;
+  margin-bottom: $header-margin-bottom;
+}

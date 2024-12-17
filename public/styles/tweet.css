@@ -1,104 +1,77 @@
-/* tweet.css */
-
-/* Styles for the entire tweet box */
 article.tweet {
-  border: 2px solid #4056A1; /* Border around the entire box */
-  border-radius: 8px; /* Rounded corners */
-  background-color: #ffffff; /* White background */
+  border: 2px solid #4056A1;
+  border-radius: 8px;
+  background-color: #ffffff;
   padding: 10px;
-  margin-bottom: 20px; /* Space between tweets */
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between rows */
-  transition: box-shadow 0.3s ease; /* Smooth shadow effect */
+  gap: 10px;
+  transition: box-shadow 0.3s ease;
 }
-
-/* Hover effect for the tweet box */
 article.tweet:hover {
-  box-shadow: 8px 8px 2px #d3d9f1; /* Light blue shadow */
-}
-
-/* Focus state for the tweet box */
-article.tweet:focus {
-  outline: 1px solid #4056A1; /* Visible focus indicator */
   box-shadow: 8px 8px 2px #d3d9f1;
 }
-
-/* Focus state for icons */
-article.tweet .icons i:focus {
-  color: #f5ae2c; /* Match hover color */
+article.tweet:focus {
+  outline: 1px solid #4056A1;
+  box-shadow: 8px 8px 2px #d3d9f1;
 }
-
-/* Top row: profile picture, name, and username */
 article.tweet .top-row {
   display: flex;
-  justify-content: space-between; /* Space between sections */
-  align-items: center; /* Vertically center content */
+  justify-content: space-between;
+  align-items: center;
 }
-
-/* Profile picture */
 article.tweet .profile-picture img {
   width: 50px;
   height: 50px;
-  border-radius: 50%; /* Circular image */
+  border-radius: 50%;
 }
-
-/* Name section */
 article.tweet .name {
-  flex-grow: 1; /* Take up remaining space between profile picture and username */
-  margin-left: 10px; /* Space between profile picture and name */
-  font-family: "Source Sans 3", sans-serif; /* Default font */
+  flex-grow: 1;
+  margin-left: 10px;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 1em;
   color: #545149;
   font-weight: bold;
 }
-
-/* Username section */
 article.tweet .username {
-  font-family: "Source Sans 3", sans-serif; /* Default font */
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.9em;
   color: #545149;
   font-style: italic;
 }
-
-/* Second row (Content) */
 article.tweet .content {
-  font-family: "Source Sans 3", sans-serif; /* Default font */
+  font-family: "Source Sans 3", sans-serif;
   color: #545149;
   font-size: 1em;
   line-height: 1.4;
   margin: 0;
 }
-
-/* Third row (Bottom row) */
 article.tweet .bottom-row {
   display: flex;
-  justify-content: space-between; /* Space between date and icons */
+  justify-content: space-between;
   align-items: center;
-  border-top: 2px solid #e3e3e3; /* Subtle top border */
+  border-top: 2px solid #e3e3e3;
   padding-top: 10px;
 }
-
-/* Date */
-article.tweet .date {
-  font-family: "Source Sans 3", sans-serif; /* Default font */
+article.tweet .bottom-row .date {
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.8em;
   color: #545149;
 }
-
-/* Icons */
-article.tweet .icons {
+article.tweet .bottom-row .icons {
   display: flex;
-  gap: 10px; /* Space between icons */
+  gap: 10px;
 }
-
-article.tweet .icons i {
+article.tweet .bottom-row .icons i {
   font-size: 1em;
-  color: #4056A1; /* Default blue color */
+  color: #4056A1;
   cursor: pointer;
   transition: color 0.3s ease;
 }
-
-article.tweet .icons i:hover {
-  color: #f5ae2c; /* Orange hover color */
+article.tweet .bottom-row .icons i:hover {
+  color: #f5ae2c;
+}
+article.tweet .bottom-row .icons i:focus {
+  color: #f5ae2c;
 }

@@ -1,88 +1,68 @@
-/* nav.css */
-
-/*
- * Navigation Bar Styles
- */
-
- nav {
+nav {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
   height: 120px;
   width: 100%;
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 0 1.5em;
-  display: flex;
-  align-items: center; /* Vertically center the content */
-  justify-content: space-between; /* Space between logo and right content */
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  z-index: 1000; /* Ensure it stays above other content */
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
-
-/* Left box (Tweeter logo) */
-.nav-left {
-  flex: 0 0 auto; /* Fixed size */
-}
-
-/* Middle box (Empty flexible space) */
-.nav-middle {
-  flex: 1; /* Grow to fill available space */
-}
-
-/* Right box (Write a new tweet) */
-.nav-right {
-  flex: 0 0 auto; /* Fixed size */
-}
-
 nav span {
   font-family: "Bungee", cursive;
-  font-size: 1.5em; /* Optional: Adjust font size for emphasis */
+  font-size: 1.5em;
 }
-
-/* Center the content of the new-tweet block */
-.nav-right .new-tweet {
-  cursor: pointer; /* Change the cursor to indicate it's clickable */
+nav .nav-left {
+  flex: 0 0 auto;
+}
+nav .nav-middle {
+  flex: 1;
+}
+nav .nav-right {
+  flex: 0 0 auto;
+}
+nav .nav-right .new-tweet {
+  cursor: pointer;
   text-align: center;
   font-family: "Bungee", cursive;
   transition: color 0.3s ease;
 }
-
-.nav-right  .new-tweet:hover {
-  color: #f5ae2c; /* Highlight on hover */
+nav .nav-right .new-tweet:hover {
+  color: #f5ae2c;
 }
-
-.nav-right .new-tweet i {
+nav .nav-right .new-tweet i {
   font-size: 1em;
-  display: block; /* Position icon below the text */
-  margin-top: 5px; /* Add spacing between text and icon */
+  display: block;
+  margin-top: 5px;
 }
 
-/* Scroll-to-Top Button */
 .scroll-top-btn {
-  position: fixed; /* Stay in the same position on scroll */
-  bottom: 20px; /* Distance from the bottom of the screen */
-  right: 20px; /* Distance from the right edge of the screen */
-  width: 50px; /* Make the button round */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
   height: 50px;
-  background-color: #4056A1; /* Match nav bar color */
-  color: #ffffff; /* White icon */
+  background-color: #4056A1;
+  color: #FFFFFF;
   border: none;
-  border-radius: 50%; /* Circular shape */
+  border-radius: 50%;
   font-size: 1.5em;
   cursor: pointer;
-  display: none; /* Initially hidden */
-  align-items: center; /* Center the icon */
-  justify-content: center; /* Center the icon */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  z-index: 1000; /* Ensure it’s above other content */
+  display: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 .scroll-top-btn:hover {
-  background-color: #f5ae2c; /* Highlight on hover */
-  transform: scale(1.1); /* Enlarge slightly on hover */
+  background-color: #f5ae2c;
+  transform: scale(1.1);
 }
-
 .scroll-top-btn:active {
-  transform: scale(0.9); /* Shrink slightly on click */
+  transform: scale(0.9);
 }

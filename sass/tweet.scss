@@ -1,0 +1,111 @@
+// Variables for reusable values
+$primary-color: #4056A1;
+$hover-color: #f5ae2c;
+$text-color: #545149;
+$border-color: #e3e3e3;
+$box-shadow-color: #d3d9f1;
+$background-color: #ffffff;
+$font-main: "Source Sans 3", sans-serif;
+$transition-duration: 0.3s;
+$border-radius: 8px;
+
+// Mixin for Flexbox alignment
+@mixin flex-align($justify: space-between, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Tweet Container
+article.tweet {
+  border: 2px solid $primary-color;
+  border-radius: $border-radius;
+  background-color: $background-color;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow $transition-duration ease;
+
+  &:hover {
+    box-shadow: 8px 8px 2px $box-shadow-color;
+  }
+
+  &:focus {
+    outline: 1px solid $primary-color;
+    box-shadow: 8px 8px 2px $box-shadow-color;
+  }
+
+  // Top Row
+  .top-row {
+    @include flex-align();
+  }
+
+  // Profile Picture
+  .profile-picture img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  // Name Section
+  .name {
+    flex-grow: 1;
+    margin-left: 10px;
+    font-family: $font-main;
+    font-size: 1em;
+    color: $text-color;
+    font-weight: bold;
+  }
+
+  // Username Section
+  .username {
+    font-family: $font-main;
+    font-size: 0.9em;
+    color: $text-color;
+    font-style: italic;
+  }
+
+  // Content Row
+  .content {
+    font-family: $font-main;
+    color: $text-color;
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  // Bottom Row
+  .bottom-row {
+    @include flex-align();
+    border-top: 2px solid $border-color;
+    padding-top: 10px;
+
+    .date {
+      font-family: $font-main;
+      font-size: 0.8em;
+      color: $text-color;
+    }
+
+    .icons {
+      display: flex;
+      gap: 10px;
+
+      i {
+        font-size: 1em;
+        color: $primary-color;
+        cursor: pointer;
+        transition: color $transition-duration ease;
+
+        &:hover {
+          color: $hover-color;
+        }
+
+        &:focus {
+          color: $hover-color;
+        }
+      }
+    }
+  }
+}

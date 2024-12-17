@@ -1,51 +1,33 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
 html {
   box-sizing: border-box;
 }
-*,
-*:before,
-*:after {
+html *,
+html *::before,
+html *::after {
   box-sizing: inherit;
 }
-
-/*
- * Global layout stuff
- */
 
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-}
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
-body {
   font-family: "Source Sans 3", sans-serif;
   padding-top: 120px;
 }
 
-/* Profile Header Styles */
 .profile-header {
   width: 100%;
   background-color: #f5ae2c;
-  background-image: url('/images/subtle-grunge.png');
+  background-image: url("/images/subtle-grunge.png");
   background-repeat: repeat;
   background-size: auto;
   padding: 20px;
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
 .profile-header img {
   width: 240px;
   height: 240px;
@@ -53,7 +35,6 @@ body {
   object-fit: cover;
   margin-bottom: 10px;
 }
-
 .profile-header h2 {
   font-family: "Source Sans 3", sans-serif;
   font-size: 1.6rem;
@@ -61,10 +42,9 @@ body {
   color: #545149;
 }
 
-/* Default Layout (Mobile-First) */
 .container {
   display: flex;
-  flex-direction: column; /* Stack sections vertically by default */
+  flex-direction: column;
   justify-content: center;
   align-items: stretch;
   gap: 20px;
@@ -74,36 +54,29 @@ body {
   margin: 0 auto;
 }
 
-/* Adjustments for Desktop Layout (1024px and above) */
 @media screen and (min-width: 1024px) {
   .container {
-    flex-direction: row; /* Align sections horizontally */
-    align-items: flex-start; /* Align items to the top */
+    flex-direction: row;
+    align-items: flex-start;
     gap: 20px;
   }
-
-  /* Left Column */
   .left-column {
-    flex: 0 0 512px; /* Fixed width for the profile header */
-    margin-right: 20px; /* Space between left and right columns */
+    flex: 0 0 512px;
+    margin-right: 20px;
   }
-
-  .profile-header {
-    width: 100%; /* Ensure it takes the full width of the left column */
-    height: auto; /* Ensure it doesn't stretch */
-    margin-bottom: 0; /* Remove unnecessary spacing */
+  .left-column .profile-header {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0;
   }
-
   .new-tweet,
   .tweets-container {
-    flex: 3; /* Main content takes up remaining space */
+    flex: 3;
   }
 }
-
-/* Large Desktop Layout (1920px and above) */
 @media screen and (min-width: 1920px) {
   .container {
-    max-width: 1920px; /* Limit max width for readability */
-    margin: 0 auto; /* Center layout */
+    max-width: 1920px;
+    margin: 0 auto;
   }
 }

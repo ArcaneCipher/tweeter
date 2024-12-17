@@ -1,0 +1,117 @@
+// Variables
+$font-main: "Source Sans 3", sans-serif;
+$text-color: #545149;
+$bg-color: #f4f1ec;
+$highlight-color: #f5ae2c;
+$container-gap: 20px;
+$profile-image-size: 240px;
+$border-radius: 8px;
+$desktop-width: 1024px;
+$large-desktop-width: 1920px;
+
+// Mixin for Box-Sizing
+@mixin box-sizing {
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+// Mixin for Media Queries
+@mixin respond-to($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Global Layout
+html {
+  @include box-sizing;
+}
+
+body {
+  color: $text-color;
+  background-color: $bg-color;
+  font-size: 24px;
+  font-family: $font-main;
+  padding-top: 120px;
+}
+
+// Profile Header Styles
+.profile-header {
+  width: 100%;
+  background-color: $highlight-color;
+  background-image: url("/images/subtle-grunge.png");
+  background-repeat: repeat;
+  background-size: auto;
+  padding: $container-gap;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: $profile-image-size;
+    height: $profile-image-size;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: $font-main;
+    font-size: 1.6rem;
+    margin: 0;
+    color: $text-color;
+  }
+}
+
+// Default Layout (Mobile-First)
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: $container-gap;
+  width: 100%;
+  padding: $container-gap;
+  background-color: inherit;
+  margin: 0 auto;
+}
+
+// Desktop Layout
+@include respond-to($desktop-width) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: $container-gap;
+  }
+
+  .left-column {
+    flex: 0 0 512px;
+    margin-right: $container-gap;
+
+    .profile-header {
+      width: 100%;
+      height: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  .new-tweet,
+  .tweets-container {
+    flex: 3;
+  }
+}
+
+// Large Desktop Layout
+@include respond-to($large-desktop-width) {
+  .container {
+    max-width: $large-desktop-width;
+    margin: 0 auto;
+  }
+}
